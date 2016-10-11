@@ -11,3 +11,5 @@ def degrees_to_direction(angle):
         return 'North'
     elif angle <= 33.75:
         return 'North North East'
+    elif angle <= 56.25:
+        return 'North East'
