@@ -13,7 +13,7 @@ def get_weather():
      \_ \_/ | \| __) \_/ |_ |_    \/\/  |_ /--\ | | | |_ | \ '''
 
     print(bcolors.HEADER, header, bcolors.ENDC)
-    intro = 'Find the prevailing weather condition right away!'
+    intro = '\n\tFind the prevailing weather condition right away!'
     print(bcolors.WARNING, intro, bcolors.ENDC)
 
     # prompt user for place
@@ -53,11 +53,11 @@ def get_weather():
     print('\t', bcolors.OKBLUE, 'Description\t:', bcolors.ENDC, bcolors.OKGREEN, desc, bcolors.ENDC)
     print('\t', bcolors.OKBLUE, 'Date obtained\t:', bcolors.ENDC, bcolors.OKGREEN, date_obtained, bcolors.ENDC)
     print('\t', bcolors.OKBLUE, 'Temperature\t:', bcolors.ENDC, bcolors.OKGREEN, temp, bcolors.ENDC)
-    print('\t', bcolors.OKBLUE, 'Pressure\t\t:', bcolors.ENDC, bcolors.OKGREEN, pressure, ' hpa', bcolors.ENDC)
-    print('\t', bcolors.OKBLUE, 'Humidity\t\t:', bcolors.ENDC, bcolors.OKGREEN, humidity, '%', bcolors.ENDC)
+    print('\t', bcolors.OKBLUE, 'Pressure\t:', bcolors.ENDC, bcolors.OKGREEN, pressure, ' hpa', bcolors.ENDC)
+    print('\t', bcolors.OKBLUE, 'Humidity\t:', bcolors.ENDC, bcolors.OKGREEN, humidity, '%', bcolors.ENDC)
     print('\t', bcolors.OKBLUE, 'Wind Direction:', bcolors.ENDC, bcolors.OKGREEN, wind_direction, bcolors.ENDC)
     print('\t', bcolors.OKBLUE, 'Wind Speed\t:', bcolors.ENDC, bcolors.OKGREEN, wind_speed, ' m/s', bcolors.ENDC)
-    print('\t', bcolors.OKBLUE, 'Sunrise\t\t:', bcolors.ENDC, bcolors.OKGREEN, sunrise, bcolors.ENDC)
-    print('\t', bcolors.OKBLUE, 'Sunset\t\t:', bcolors.ENDC, bcolors.OKGREEN, sunset, bcolors.ENDC)
+    print('\t', bcolors.OKBLUE, 'Sunrise\t:', bcolors.ENDC, bcolors.OKGREEN, sunrise, bcolors.ENDC)
+    print('\t', bcolors.OKBLUE, 'Sunset\t:', bcolors.ENDC, bcolors.OKGREEN, sunset, bcolors.ENDC)
 
     print('\n', bcolors.BOLD, "Powered by http://openweathermap.org/", bcolors.ENDC)
