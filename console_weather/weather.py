@@ -2,14 +2,23 @@ import json
 import urllib.request
 import datetime
 from console_weather.utilities import degrees_to_direction
+from console_weather.utilities import bcolors
 
 
 # TODO: Complete intro string
-intro = 'Welcome to Console Weather'
+header = '''
+  _  _        __  _      _           _     ___     _  _
+ /  / \ |\ | (_  / \ |  |_   \    / |_  /\  | |_| |_ |_)
+ \_ \_/ | \| __) \_/ |_ |_    \/\/  |_ /--\ | | | |_ | \ '''
+
+print(bcolors.HEADER, header, bcolors.ENDC)
+intro = 'Find the prevailing weather condition right away!'
+print(bcolors.WARNING, intro, bcolors.ENDC)
 
 # prompt user for place
 # TODO: Sanitize this input: - trim, must be single for now
-place = input("Enter the place name: ")
+print('\t', bcolors.UNDERLINE, '\n+++++++++++++++++++++', bcolors.ENDC)
+place = input("Enter the name of place: ")
 
 place_url = 'http://api.openweathermap.org/data/2.5/weather?q=' + place + '&units=metric&appid=aa5ef977dbf3abdd8f60ad680ad2e4aa'
 
@@ -19,7 +28,7 @@ data = urllib.request.urlopen(place_url).read()
 # decode the weather data to dict
 weather_data = json.loads(str(data, encoding='utf-8'))
 
-print(weather_data)
+# print(weather_data)
 
 # Get important parameters
 desc = weather_data['weather'][0]['description'].capitalize() # weather summary
@@ -36,16 +45,18 @@ st = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
 sunset = st.strftime("%I:%M%p") # sunset
 
 # Output weather data obtained
-print("\n\n")
-print('Weather  in ', place.capitalize(), '\n')
-print('Description\t:', desc)
-print('Date obtained\t:', date_obtained)
-print('Temperature\t:', temp)
-print('Pressure\t:', pressure)
-print('Humidity\t:', humidity)
-print('Wind\t:', 'Direction\t:', wind_direction, 'Speed:\t', wind_speed)
-print('Sunrise\t:', sunrise)
-print('Sunset\t:', sunset)
+print("\n")
+print('\t', bcolors.HEADER, 'Weather  in ', place.capitalize(),bcolors.ENDC, '\n')
+print('\t', bcolors.OKBLUE, 'Description\t:', bcolors.ENDC, bcolors.OKGREEN, desc, bcolors.ENDC)
+print('\t', bcolors.OKBLUE, 'Date obtained\t:', bcolors.ENDC, bcolors.OKGREEN, date_obtained, bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Temperature\t:', bcolors.ENDC, bcolors.OKGREEN,temp , bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Pressure\t\t:', bcolors.ENDC, bcolors.OKGREEN, pressure, ' hpa', bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Humidity\t\t:', bcolors.ENDC, bcolors.OKGREEN, humidity, '%', bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Wind Direction:', bcolors.ENDC, bcolors.OKGREEN,wind_direction, bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Wind Speed\t:', bcolors.ENDC, bcolors.OKGREEN, wind_speed, ' m/s', bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Sunrise\t\t:', bcolors.ENDC, bcolors.OKGREEN, sunrise, bcolors.ENDC)
+print('\t', bcolors.OKBLUE,'Sunset\t\t:', bcolors.ENDC, bcolors.OKGREEN,sunset, bcolors.ENDC)
 
+print('\n' , bcolors.BOLD, "Powered by http://openweathermap.org/", bcolors.ENDC)
 
 
