@@ -17,8 +17,10 @@ print(bcolors.WARNING, intro, bcolors.ENDC)
 
 # prompt user for place
 # TODO: Sanitize this input: - trim, must be single for now
-print('\t', bcolors.UNDERLINE, '\n+++++++++++++++++++++', bcolors.ENDC)
+print('\t', bcolors.BOLD)
 place = input("Enter the name of place: ")
+print(bcolors.ENDC)
+place = place.strip()
 
 place_url = 'http://api.openweathermap.org/data/2.5/weather?q=' + place + '&units=metric&appid=aa5ef977dbf3abdd8f60ad680ad2e4aa'
 
