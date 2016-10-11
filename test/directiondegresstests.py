@@ -15,5 +15,12 @@ class DegreesToDirectionTests(unittest.TestCase):
         """
         self.assertEqual('North North East', degrees_to_direction(11.26))
 
+    def test_converts_to_NorthEast(self):
+        """
+        Should convert to NE direction correctly
+        """
+        self.assertEqual('North East', degrees_to_direction(33.76))
+
+
 if __name__ == '__main__':
     unittest.main()
