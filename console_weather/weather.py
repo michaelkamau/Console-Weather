@@ -17,3 +17,15 @@ data = urllib.request.urlopen(place_url).read()
 weather_data = json.loads(str(data, encoding='utf-8'))
 
 print(weather_data)
+
+# Get important parameters
+desc = weather_data['weather'][0]['description'].capitalize() # weather summary
+dt = weather_data['dt'] # date timestamp
+date_obtained = dt.strftime("%A, %d %B %Y %I:%M%p") # date report obtained
+temp = weather_data['main']['temp'] # temperature
+pressure = weather_data['main']['pressure'] # pressure
+humidity = weather_data['main']['humidity'] # humidity
+
+
+
+
