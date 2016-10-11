@@ -7,5 +7,7 @@ def degrees_to_direction(angle):
 
     :return: compass cardinal direction
     """
-    if 348.75 > angle < 11.25:
+    if 348.75 > angle <= 11.25:
         return 'North'
+    elif angle <= 33.75:
+        return 'North North East'
